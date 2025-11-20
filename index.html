@@ -15,13 +15,13 @@
     <nav class="nav">
       <div class="brand">
         <div class="brand-icon">
-          <iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>
+          <img src="assets/slate-icon.svg" alt="Slate icon" />
         </div>
         <span class="brand-name">Slate</span>
       </div>
       <div class="nav-actions">
-        <button class="btn ghost">Product tour</button>
-        <button class="btn primary">Download Slate</button>
+        <button class="pill ghost">Product tour</button>
+        <button class="pill primary">Download Slate</button>
       </div>
     </nav>
 
@@ -31,22 +31,29 @@
         <h1>Surface every markdown task with a calm, Apple-inspired flow.</h1>
         <p class="lead">Slate keeps your vault in sync with a native iOS experience, surfacing the right tasks at the right moment so your day moves with intention.</p>
         <div class="actions">
-          <button class="btn primary">Get Slate on iOS</button>
-          <button class="btn secondary">See it in motion</button>
+          <button class="pill primary">Get Slate on iOS</button>
+          <button class="pill secondary">See it in motion</button>
         </div>
-        <div class="metrics">
-          <div class="metric">
-            <iconify-icon icon="solar:clock-circle-bold-duotone"></iconify-icon>
+        <div class="meta-grid">
+          <div class="meta-card">
+            <div class="meta-icon"><iconify-icon icon="solar:clock-circle-bold-duotone"></iconify-icon></div>
             <div>
-              <p class="metric-label">Syncs in seconds</p>
-              <p class="metric-value">Bi-directional markdown vault sync</p>
+              <p class="meta-label">Syncs in seconds</p>
+              <p class="meta-value">Bi-directional markdown vault sync</p>
             </div>
           </div>
-          <div class="metric">
-            <iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon>
+          <div class="meta-card">
+            <div class="meta-icon" data-tone="amber"><iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon></div>
             <div>
-              <p class="metric-label">Private by design</p>
-              <p class="metric-value">End-to-end vault integrity</p>
+              <p class="meta-label">Private by design</p>
+              <p class="meta-value">End-to-end vault integrity</p>
+            </div>
+          </div>
+          <div class="meta-card">
+            <div class="meta-icon" data-tone="teal"><iconify-icon icon="solar:widget-6-bold-duotone"></iconify-icon></div>
+            <div>
+              <p class="meta-label">Built for obsidian-style vaults</p>
+              <p class="meta-value">Tasks stay linked to markdown context</p>
             </div>
           </div>
         </div>
@@ -61,30 +68,43 @@
               <iconify-icon icon="solar:battery-bolt-bold-duotone"></iconify-icon>
             </div>
           </div>
-          <div class="task-list">
-            <div class="task-card floating">
-              <div class="task-heading">
-                <span class="pill">Today</span>
-                <iconify-icon icon="solar:star-shine-bold-duotone"></iconify-icon>
-              </div>
-              <p class="task-title">Standup notes ready</p>
-              <p class="task-sub">Syncs from /notes/standup.md</p>
+          <div class="screen">
+            <div class="screen-header">
+              <div class="crumbs">Inbox</div>
+              <button class="pill tertiary">Sync now</button>
             </div>
-            <div class="task-card pulse">
-              <div class="task-heading">
-                <span class="pill" data-tone="neutral">Focus</span>
+            <div class="list-card">
+              <div class="list-row">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <p class="task-title">Standup notes</p>
+                  <p class="task-sub">Syncs from /notes/standup.md</p>
+                </div>
+                <iconify-icon icon="solar:star-bold-duotone"></iconify-icon>
+              </div>
+              <div class="list-row">
+                <span class="dot amber" aria-hidden="true"></span>
+                <div>
+                  <p class="task-title">Draft release notes</p>
+                  <p class="task-sub">/shipping/release.md · Due today</p>
+                </div>
                 <iconify-icon icon="solar:bell-bing-bold-duotone"></iconify-icon>
               </div>
-              <p class="task-title">Draft release notes</p>
-              <p class="task-sub">Due today · /shipping/release.md</p>
-            </div>
-            <div class="task-card">
-              <div class="task-heading">
-                <span class="pill" data-tone="cool">Workspace</span>
+              <div class="list-row">
+                <span class="dot teal" aria-hidden="true"></span>
+                <div>
+                  <p class="task-title">Archive completed tasks</p>
+                  <p class="task-sub">Auto-cleans completed items</p>
+                </div>
                 <iconify-icon icon="solar:check-read-bold-duotone"></iconify-icon>
               </div>
-              <p class="task-title">Archive completed tasks</p>
-              <p class="task-sub">Auto-cleans completed items</p>
+            </div>
+            <div class="mini-panel">
+              <div>
+                <p class="panel-label">Workspace</p>
+                <p class="panel-value">Today · Focus · Inbox</p>
+              </div>
+              <button class="pill primary">Get Slate</button>
             </div>
           </div>
         </div>
@@ -140,7 +160,7 @@
           <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Native iOS reminders</li>
           <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Quick capture widget</li>
         </ul>
-        <button class="btn secondary">Stay free</button>
+        <button class="pill secondary">Stay free</button>
       </div>
 
       <div class="price-card featured">
@@ -155,7 +175,7 @@
           <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Calendar and focus mode</li>
           <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Priority support</li>
         </ul>
-        <button class="btn primary">Upgrade to Pro</button>
+        <button class="pill primary">Upgrade to Pro</button>
       </div>
     </div>
   </section>
@@ -171,8 +191,8 @@
         </div>
         <p class="footnote">A calmer way to manage markdown tasks on iOS. Sync securely, stay focused, and ship with clarity.</p>
         <div class="footer-actions">
-          <button class="btn primary">Download Slate</button>
-          <button class="btn ghost">Contact</button>
+          <button class="pill primary">Download Slate</button>
+          <button class="pill ghost">Contact</button>
         </div>
       </div>
       <div class="footer-links">
