@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slate — iOS task management for markdown vaults</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body data-theme="glass">
+  <header class="hero section reveal" id="hero">
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="assets/slate-icon.svg" alt="Slate icon" />
+        </div>
+        <span class="brand-name">Slate</span>
+      </div>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <button class="pill ghost">Product tour</button>
+        <button class="pill primary">Download</button>
+      </div>
+    </nav>
+
+    <div class="hero-wrap">
+      <div class="hero-bg">
+        <div class="paper ribbon"></div>
+        <div class="paper sand"></div>
+        <div class="paper teal"></div>
+        <div class="paper blue"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow chip">SlateTasks.com · Made for iPhone</p>
+        <h1>Your space for notes, tasks, and big ideas.</h1>
+        <p class="lead center">Slate keeps your markdown vault in sync across iOS with the calm, crafted feel of your favorite Apple apps.</p>
+        <div class="actions centered">
+          <button class="pill primary">Try Slate Free</button>
+          <button class="pill secondary">Download on iOS</button>
+        </div>
+      </div>
+
+      <div class="hero-visual craft">
+        <div class="craft-window">
+          <div class="window-header">
+            <div class="crumbs">All Docs</div>
+            <div class="window-actions">
+              <button class="pill tertiary">Focus view</button>
+              <button class="pill ghost">Sync vault</button>
+            </div>
+          </div>
+          <div class="craft-layout">
+            <aside class="sidebar">
+              <div class="sidebar-section">
+                <p class="sidebar-heading">Today</p>
+                <ul>
+                  <li class="active"><span class="dot"></span> Inbox</li>
+                  <li><span class="dot amber"></span> Recents</li>
+                  <li><span class="dot teal"></span> Notes</li>
+                  <li><span class="dot"></span> Archive</li>
+                </ul>
+              </div>
+              <div class="sidebar-section">
+                <p class="sidebar-heading">Vaults</p>
+                <ul>
+                  <li><iconify-icon icon="solar:folder-2-bold-duotone"></iconify-icon> Personal</li>
+                  <li><iconify-icon icon="solar:folder-with-files-bold-duotone"></iconify-icon> Product</li>
+                  <li><iconify-icon icon="solar:cloud-storage-bold-duotone"></iconify-icon> Shared</li>
+                </ul>
+              </div>
+            </aside>
+            <div class="card-grid">
+              <article class="task-card coral">
+                <p class="card-title">Reading list</p>
+                <p class="card-sub">/personal/reading.md</p>
+              </article>
+              <article class="task-card mint">
+                <p class="card-title">Workout notes</p>
+                <p class="card-sub">/habits/workout.md</p>
+              </article>
+              <article class="task-card yellow">
+                <p class="card-title">Weekly plan</p>
+                <p class="card-sub">/teams/weekly.md</p>
+              </article>
+              <article class="task-card lilac">
+                <p class="card-title">Lecture notes</p>
+                <p class="card-sub">/learning/lecture.md</p>
+              </article>
+              <article class="task-card stone">
+                <p class="card-title">All Docs</p>
+                <p class="card-sub">/vaults</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="hero-tear"></div>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-card">
+          <div class="meta-icon"><iconify-icon icon="solar:clock-circle-bold-duotone"></iconify-icon></div>
+          <div>
+            <p class="meta-label">Instant sync</p>
+            <p class="meta-value">Bi-directional updates from your markdown vault</p>
+          </div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-icon" data-tone="amber"><iconify-icon icon="solar:shield-check-bold-duotone"></iconify-icon></div>
+          <div>
+            <p class="meta-label">Private by design</p>
+            <p class="meta-value">Integrity preserved with on-device encryption</p>
+          </div>
+        </div>
+        <div class="meta-card">
+          <div class="meta-icon" data-tone="teal"><iconify-icon icon="solar:widget-6-bold-duotone"></iconify-icon></div>
+          <div>
+            <p class="meta-label">Built for vaults</p>
+            <p class="meta-value">Tasks stay linked to their markdown context</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section trusted reveal">
+    <div class="section-header">
+      <p class="eyebrow">Designed with intention</p>
+      <h2>Slate fits beside your Apple favorites.</h2>
+      <p class="lead">Pair a crisp interface with lightning-fast sync and privacy-first guardrails.</p>
+    </div>
+    <div class="logo-row">
+      <iconify-icon icon="logos:apple" title="Apple"></iconify-icon>
+      <iconify-icon icon="logos:notion-icon" title="Notion"></iconify-icon>
+      <iconify-icon icon="logos:github-octocat" title="GitHub"></iconify-icon>
+      <iconify-icon icon="logos:figma" title="Figma"></iconify-icon>
+      <iconify-icon icon="logos:dropbox" title="Dropbox"></iconify-icon>
+    </div>
+  </section>
+
+  <section class="section split reveal" id="overview">
+    <div class="split-copy">
+      <p class="eyebrow">Overview</p>
+      <h2>Markdown tasks that feel as considered as the iPhone in your hand.</h2>
+      <p class="lead">Slate mirrors Apple’s clarity: generous whitespace, precise typography, and playful motion. You get context from your vault without clutter—just a calm flow through your day.</p>
+      <div class="actions">
+        <button class="pill primary">See the details</button>
+        <button class="pill secondary">Preview a vault</button>
+      </div>
+      <ul class="pill-list">
+        <li><iconify-icon icon="solar:compass-bold-duotone"></iconify-icon>Unified inbox across vaults</li>
+        <li><iconify-icon icon="solar:widget-4-bold-duotone"></iconify-icon>Widgets that mirror your focus lists</li>
+        <li><iconify-icon icon="solar:lock-check-bold-duotone"></iconify-icon>On-device encryption for every task</li>
+      </ul>
+    </div>
+    <div class="split-visual">
+      <div class="mini-device">
+        <p class="mini-heading">“Flagged & ready”</p>
+        <p class="mini-copy">See the tasks that ship today, animated with the same restraint you expect from Apple.</p>
+        <div class="mini-grid">
+          <div>
+            <p class="mini-label">Sync cadence</p>
+            <p class="mini-value">Every 30 seconds</p>
+          </div>
+          <div>
+            <p class="mini-label">Vaults live</p>
+            <p class="mini-value">6</p>
+          </div>
+          <div>
+            <p class="mini-label">Offline ready</p>
+            <p class="mini-value">Yes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section features reveal" id="features">
+    <div class="section-header">
+      <p class="eyebrow">Why you'll love Slate</p>
+      <h2>Everything tuned for a light, confident workflow.</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon"><iconify-icon icon="solar:radar-2-bold-duotone"></iconify-icon></div>
+        <h3>Precise capture</h3>
+        <p>Swipe, tap, and dictate into tasks that map straight to your markdown files—no extra fields, just the essentials.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon"><iconify-icon icon="solar:cloud-check-bold-duotone"></iconify-icon></div>
+        <h3>Always in sync</h3>
+        <p>Vault updates land on device in moments, with status you can trust and a sync now control that feels native.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon"><iconify-icon icon="solar:stars-bold-duotone"></iconify-icon></div>
+        <h3>Apple-inspired polish</h3>
+        <p>Rounded glass, light gradients, and refined motion bring the same calm you see across Apple.com.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section variations reveal" id="variations">
+    <div class="section-header">
+      <p class="eyebrow">Choose your finish</p>
+      <h2>Try Slate in three looks—just like picking your favorite device color.</h2>
+      <p class="lead">Glass for airy clarity, Luminous for a studio glow, or Midnight for focused contrast.</p>
+    </div>
+
+    <div class="variation-grid">
+      <article class="variation-card active" data-theme="glass">
+        <div class="variation-top">
+          <div>
+            <p class="variation-name">Glass</p>
+            <p class="variation-copy">Bright, weightless, and soft around the edges.</p>
+          </div>
+          <span class="pill badge">Current</span>
+        </div>
+        <ul class="variation-notes">
+          <li><iconify-icon icon="solar:magic-stick-bold-duotone"></iconify-icon>Glassmorphism cards</li>
+          <li><iconify-icon icon="solar:shield-bold-duotone"></iconify-icon>Ceramic blue accent</li>
+          <li><iconify-icon icon="solar:sunrise-bold-duotone"></iconify-icon>Soft radial lighting</li>
+        </ul>
+        <button class="pill secondary" type="button">Use glass</button>
+      </article>
+
+      <article class="variation-card" data-theme="luminous">
+        <div class="variation-top">
+          <div>
+            <p class="variation-name">Luminous</p>
+            <p class="variation-copy">Studio gradients and neon outlines.</p>
+          </div>
+          <span class="pill badge">Alt</span>
+        </div>
+        <ul class="variation-notes">
+          <li><iconify-icon icon="solar:flashlight-bold-duotone"></iconify-icon>Electric violet accent</li>
+          <li><iconify-icon icon="solar:planet-bold-duotone"></iconify-icon>Outer-space gradient</li>
+          <li><iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>Sharper card outlines</li>
+        </ul>
+        <button class="pill secondary" type="button">Use luminous</button>
+      </article>
+
+      <article class="variation-card" data-theme="midnight">
+        <div class="variation-top">
+          <div>
+            <p class="variation-name">Midnight</p>
+            <p class="variation-copy">High-contrast charcoal with aqua details.</p>
+          </div>
+          <span class="pill badge">Alt</span>
+        </div>
+        <ul class="variation-notes">
+          <li><iconify-icon icon="solar:moon-stars-bold-duotone"></iconify-icon>Charcoal gradient</li>
+          <li><iconify-icon icon="solar:chart-bold-duotone"></iconify-icon>Emerald progress glow</li>
+          <li><iconify-icon icon="solar:target-bold-duotone"></iconify-icon>Focused borders</li>
+        </ul>
+        <button class="pill secondary" type="button">Use midnight</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="section testimonial reveal" id="testimonial">
+    <div class="card">
+      <div class="quote-mark">
+        <iconify-icon icon="solar:chat-round-check-bold-duotone"></iconify-icon>
+      </div>
+      <p class="quote">“Slate is the first iOS app that respects my markdown vault. It surfaces what matters without breaking my flow.”</p>
+      <div class="quote-author">
+        <div class="avatar">SC</div>
+        <div>
+          <p class="author-name">Serena Chen</p>
+          <p class="author-title">Product Lead, Northern Labs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing reveal" id="pricing">
+    <div class="section-header">
+      <p class="eyebrow">Pricing</p>
+      <h2>Start free. Upgrade when you're ready for power features.</h2>
+      <p class="lead">Every plan keeps your markdown tasks synced and ready on iOS.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="card-header">
+          <p class="plan">Starter</p>
+          <p class="price">Free</p>
+        </div>
+        <ul class="features">
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Sync up to 2 vaults</li>
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Native iOS reminders</li>
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Quick capture widget</li>
+        </ul>
+        <button class="pill secondary">Stay free</button>
+      </div>
+
+      <div class="price-card featured">
+        <div class="badge">Most loved</div>
+        <div class="card-header">
+          <p class="plan">Pro</p>
+          <p class="price">$9<span>/mo</span></p>
+        </div>
+        <ul class="features">
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Unlimited vault connections</li>
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Offline-first sync engine</li>
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Calendar and focus mode</li>
+          <li><iconify-icon icon="solar:check-circle-bold-duotone"></iconify-icon>Priority support</li>
+        </ul>
+        <button class="pill primary">Upgrade to Pro</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer section reveal">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-icon">
+            <img src="assets/slate-icon.svg" alt="Slate icon" />
+          </div>
+          <span class="brand-name">Slate</span>
+        </div>
+        <p class="footnote">A calmer way to manage markdown tasks on iOS. Sync securely, stay focused, and ship with clarity.</p>
+        <div class="footer-actions">
+          <button class="pill primary">Download Slate</button>
+          <button class="pill ghost">Contact</button>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div>
+          <p class="foot-heading">Product</p>
+          <a href="#hero">Overview</a>
+          <a href="#testimonial">Stories</a>
+          <a href="#pricing">Plans</a>
+        </div>
+        <div>
+          <p class="foot-heading">Company</p>
+          <a href="#">About</a>
+          <a href="#">Press</a>
+          <a href="#">Support</a>
+        </div>
+        <div>
+          <p class="foot-heading">Legal</p>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+    <p class="smallprint">© 2024 SlateTasks.com. Built for people who think in markdown.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
