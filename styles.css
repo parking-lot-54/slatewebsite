@@ -1,5 +1,7 @@
 :root {
   color-scheme: light dark;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
   --page-bg: #f6f7fb;
   --surface: #ffffff;
   --text: #0f1720;
@@ -8,6 +10,7 @@
   --accent-soft: rgba(255, 122, 81, 0.12);
   --border: rgba(15, 23, 32, 0.08);
   --shadow: 0 24px 60px rgba(15, 23, 32, 0.12);
+  --shadow-soft: 0 14px 30px rgba(15, 23, 32, 0.1);
   --radius: 28px;
 }
 
@@ -30,7 +33,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   background: var(--page-bg);
   color: var(--text);
   line-height: 1.6;
@@ -43,9 +46,32 @@ a {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'DM Serif Display', 'Georgia', serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  letter-spacing: -0.03em;
   margin: 0;
+}
+
+.nav-shell,
+.logo-pill,
+.signup-form,
+.app-store-badge,
+.micro-pillars li,
+.faq-item {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+.nav-shell {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: var(--border);
+  opacity: 0.8;
 }
 
 .nav-shell {
@@ -78,7 +104,8 @@ h1, h2, h3, h4 {
   padding: 8px 12px;
   border-radius: 999px;
   background: var(--surface);
-  box-shadow: 0 10px 24px rgba(15, 23, 32, 0.08);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border);
 }
 
 .logo-mark {
@@ -107,6 +134,7 @@ h1, h2, h3, h4 {
 .hero-copy {
   display: grid;
   gap: 24px;
+  animation: fade-up 720ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
 }
 
 .badge {
@@ -127,6 +155,7 @@ h1, h2, h3, h4 {
 .hero-copy h1 {
   font-size: clamp(40px, 5vw, 60px);
   line-height: 1.1;
+  font-weight: 700;
 }
 
 .lead {
@@ -155,6 +184,15 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow);
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .signup-form input {
   border: none;
   background: transparent;
@@ -176,7 +214,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .button.primary {
@@ -187,6 +225,12 @@ h1, h2, h3, h4 {
 
 .button.primary:hover {
   transform: translateY(-1px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
 }
 
 .app-store-badge {
@@ -204,6 +248,9 @@ h1, h2, h3, h4 {
 
 .apple-logo {
   font-size: 22px;
+  line-height: 1;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-sans);
+  color: var(--text);
 }
 
 .badge-label {
@@ -225,6 +272,20 @@ h1, h2, h3, h4 {
   min-height: 22px;
 }
 
+.form-note[data-state="success"] {
+  color: color-mix(in srgb, var(--text) 80%, var(--accent));
+}
+
+.form-note[data-state="error"] {
+  color: color-mix(in srgb, var(--text) 70%, #ff3b30);
+}
+
+.fineprint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .micro-pillars {
   list-style: none;
   padding: 0;
@@ -241,6 +302,21 @@ h1, h2, h3, h4 {
   border-radius: 999px;
   background: var(--surface);
   border: 1px solid var(--border);
+  position: relative;
+  padding-left: 30px;
+}
+
+.micro-pillars li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
 }
 
 .hero-visual {
@@ -258,6 +334,8 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow);
   position: relative;
   z-index: 1;
+  animation: fade-up 880ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+  animation-delay: 80ms;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -270,70 +348,113 @@ h1, h2, h3, h4 {
   height: 100%;
   border-radius: 38px;
   padding: 18px;
-  background: radial-gradient(circle at top, rgba(255, 159, 127, 0.2), transparent 55%), var(--surface);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 159, 127, 0.22), transparent 55%),
+    radial-gradient(circle at 100% 50%, rgba(255, 122, 81, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.92)),
+    var(--surface);
   display: grid;
-  align-content: start;
+  grid-template-rows: auto 1fr auto;
   gap: 18px;
+  overflow: hidden;
 }
 
-.phone-header {
+.phone-status {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text) 80%, var(--muted));
+  letter-spacing: 0.02em;
+}
+
+.phone-time {
+  font-variant-numeric: tabular-nums;
+}
+
+.phone-status-dots {
+  display: inline-flex;
   gap: 6px;
 }
 
-.signal-dot {
-  width: 10px;
-  height: 10px;
+.phone-status-dots span {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: var(--accent);
+  background: color-mix(in srgb, var(--accent) 70%, var(--text));
   opacity: 0.6;
 }
 
-.phone-icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 32px;
-  background: var(--surface);
-  box-shadow: 0 16px 30px rgba(15, 23, 32, 0.15);
+.home-grid {
   display: grid;
-  place-items: center;
-  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 10px;
+  align-content: start;
 }
 
-.phone-icon img {
-  width: 80px;
-  height: 80px;
-}
-
-.phone-text {
+.home-app {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
   text-align: center;
 }
 
-.phone-title {
-  font-weight: 600;
-  margin: 0;
+.home-app-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 76%, var(--page-bg));
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 26px rgba(15, 23, 32, 0.12);
 }
 
-.phone-subtitle {
-  margin: 6px 0 16px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.phone-lines {
+.home-app.is-slate .home-app-icon {
   display: grid;
-  gap: 8px;
+  place-items: center;
+  background: var(--surface);
 }
 
-.phone-lines span {
-  height: 10px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(15, 23, 32, 0.1), rgba(15, 23, 32, 0));
+.home-app.is-slate .home-app-icon img {
+  width: 44px;
+  height: 44px;
+}
+
+.home-app-label {
+  font-size: 11px;
+  color: color-mix(in srgb, var(--text) 70%, var(--muted));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70px;
+}
+
+.home-dock {
+  height: 74px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 12px;
+}
+
+.home-dock span {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
-  .phone-lines span {
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  .home-dock {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .home-dock span {
+    background: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -345,6 +466,7 @@ h1, h2, h3, h4 {
   background: radial-gradient(circle at center, rgba(255, 122, 81, 0.3), transparent 60%);
   filter: blur(30px);
   z-index: 0;
+  animation: glow 6s ease-in-out infinite;
 }
 
 .sr-only {
@@ -397,6 +519,40 @@ h1, h2, h3, h4 {
   color: var(--muted);
 }
 
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  outline-offset: 3px;
+}
+
+.signup-form:focus-within {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  box-shadow: 0 26px 60px rgba(15, 23, 32, 0.14);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.55; transform: translateY(0) scale(1); }
+  50% { opacity: 0.8; transform: translateY(-6px) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding-top: 96px;
@@ -423,5 +579,19 @@ h1, h2, h3, h4 {
   .app-store-badge {
     justify-content: center;
     width: 100%;
+  }
+
+  .home-grid {
+    gap: 12px 8px;
+  }
+
+  .home-app-icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .home-dock span {
+    width: 48px;
+    height: 48px;
   }
 }

@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Slate — Native task manager for your Obsidian vault</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <meta name="description" content="A clean, native task manager that turns your Markdown and Obsidian vault into a clear, elegant task system — crafted for iPhone, iPad and Mac." />
+  <meta property="og:title" content="Slate — Native task manager for your Obsidian vault" />
+  <meta property="og:description" content="A clean, native task manager that turns your Markdown and Obsidian vault into a clear, elegant task system — crafted for iPhone, iPad and Mac." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://slatetasks.com/" />
+  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="assets/slate-icon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -32,17 +37,19 @@
           <div class="cta-row">
             <form class="signup-form" id="signupForm">
               <label class="sr-only" for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+              <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" inputmode="email" spellcheck="false" required>
+              <input class="honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <button class="button primary" type="submit">Signup for Early Access</button>
             </form>
             <div class="app-store-badge" aria-label="Coming soon to the Apple App Store">
-              <span class="apple-logo"></span>
+              <span class="apple-logo" aria-hidden="true"></span>
               <div>
                 <span class="badge-label">Coming soon</span>
                 <span class="badge-title">App Store</span>
               </div>
             </div>
           </div>
+          <p class="fineprint">No spam. Just alpha invites.</p>
           <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
           <ul class="micro-pillars">
             <li>Understands your Obsidian vault</li>
@@ -53,22 +60,29 @@
         <div class="hero-visual" aria-hidden="true">
           <div class="phone-frame">
             <div class="phone-screen">
-              <div class="phone-header">
-                <div class="signal-dot"></div>
-                <div class="signal-dot"></div>
-                <div class="signal-dot"></div>
+              <div class="phone-status">
+                <span class="phone-time">9:41</span>
+                <span class="phone-status-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </span>
               </div>
-              <div class="phone-icon">
-                <img src="assets/slate-icon.svg" alt="" />
-              </div>
-              <div class="phone-text">
-                <p class="phone-title">Slate Tasks</p>
-                <p class="phone-subtitle">Your vault, beautifully organized.</p>
-                <div class="phone-lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+              <div class="home-grid">
+                <div class="home-app is-slate">
+                  <div class="home-app-icon">
+                    <img src="assets/slate-icon.svg" alt="" />
+                  </div>
+                  <div class="home-app-label">Slate</div>
                 </div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Notes</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Calendar</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Files</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Mail</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Focus</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Music</div></div>
+                <div class="home-app"><div class="home-app-icon"></div><div class="home-app-label">Maps</div></div>
+              </div>
+              <div class="home-dock" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
               </div>
             </div>
           </div>
