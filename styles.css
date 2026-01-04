@@ -280,12 +280,6 @@ h1, h2, h3, h4 {
   color: color-mix(in srgb, var(--text) 70%, #ff3b30);
 }
 
-.fineprint {
-  margin: 0;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 .micro-pillars {
   list-style: none;
   padding: 0;
