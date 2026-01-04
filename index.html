@@ -3,356 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slate — Calm task management for markdown vaults</title>
+  <title>Slate — Native task manager for your Obsidian vault</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
-  <!-- Section 1: Navigation -->
   <header class="nav-shell">
     <nav class="nav">
       <div class="nav-left">
         <div class="logo-pill">
-          <img src="assets/slate-icon.svg" alt="Slate logo" class="logo-mark" />
+          <img src="assets/slate-icon.svg" alt="Slate app icon" class="logo-mark" />
           <span class="logo-name">Slate</span>
         </div>
       </div>
-      <div class="nav-center">
-        <a href="#features">Product</a>
-        <a href="#community">Community</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#download">Download</a>
-      </div>
-      <div class="nav-right">
-        <a class="ghost" href="#login">Log in</a>
-        <button class="button primary">Try Slate Free</button>
-      </div>
+      <div class="nav-right" aria-hidden="true"></div>
     </nav>
   </header>
 
   <main>
-    <!-- Section 2: Hero -->
-    <section class="hero section reveal" id="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="halo halo-left"></div>
-        <div class="halo halo-right"></div>
-        <div class="outline-text">SLATE</div>
-      </div>
-      <div class="hero-content">
-        <p class="badge">Built for iPhone & iPad</p>
-        <h1>Your space for tasks, lists, and calm productivity.</h1>
-        <p class="lead">Slate brings your markdown vault into a serene, Apple-grade workspace—so every task feels organized, thoughtful, and ready.</p>
-        <div class="hero-actions">
-          <button class="button primary">Try Slate Free</button>
-          <button class="button secondary">See how it works</button>
-        </div>
-        <div class="hero-shot">
-          <div class="shot-header">
-            <div class="crumb">Home / Vaults</div>
-            <div class="actions">
-              <span class="chip">Synced · 30s</span>
-              <button class="chip ghost">Focus</button>
-            </div>
-          </div>
-          <div class="shot-body">
-            <div class="shot-sidebar">
-              <p class="sidebar-title">Vaults</p>
-              <ul>
-                <li class="active"><iconify-icon icon="solar:folder-2-bold-duotone"></iconify-icon> Personal</li>
-                <li><iconify-icon icon="solar:folder-with-files-bold-duotone"></iconify-icon> Product</li>
-                <li><iconify-icon icon="solar:cloud-storage-bold-duotone"></iconify-icon> Shared</li>
-              </ul>
-            </div>
-            <div class="shot-pane">
-              <div class="task-row">
-                <p class="task-title">Ship release notes</p>
-                <span class="task-meta">Today · Vault /product/log</span>
-              </div>
-              <div class="task-card">
-                <p class="card-eyebrow">Daily focus</p>
-                <p class="card-title">Three priorities</p>
-                <ul>
-                  <li><span class="dot blue"></span> Draft keynote outline</li>
-                  <li><span class="dot purple"></span> Review QA fixes</li>
-                  <li><span class="dot green"></span> Reply to customer beta</li>
-                </ul>
-              </div>
-              <div class="task-row subtle">
-                <p class="task-title">Inbox zero, in markdown</p>
-                <span class="task-meta">iOS · iPadOS</span>
+    <section class="hero" id="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="badge">Pre-release alpha</p>
+          <h1>A Native Task Manager for Your Obsidian Vault</h1>
+          <p class="lead">A clean, native task manager that turns your Markdown and Obsidian vault into a clear, elegant task system — crafted for iPhone, iPad and Mac.</p>
+          <div class="cta-row">
+            <form class="signup-form" id="signupForm">
+              <label class="sr-only" for="email">Email address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required>
+              <button class="button primary" type="submit">Signup for Early Access</button>
+            </form>
+            <div class="app-store-badge" aria-label="Coming soon to the Apple App Store">
+              <span class="apple-logo"></span>
+              <div>
+                <span class="badge-label">Coming soon</span>
+                <span class="badge-title">App Store</span>
               </div>
             </div>
           </div>
-          <div class="torn-paper" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: Feature Intro -->
-    <section class="section feature-intro reveal" id="features">
-      <p class="eyebrow">Slate isn’t just for tasks</p>
-      <h2>It brings structure to your whole day.</h2>
-      <div class="feature-row">
-        <div class="feature-chip"><iconify-icon icon="solar:checklist-bold-duotone"></iconify-icon> Tasks</div>
-        <div class="feature-chip"><iconify-icon icon="solar:list-check-bold-duotone"></iconify-icon> Lists</div>
-        <div class="feature-chip"><iconify-icon icon="solar:calendar-bold-duotone"></iconify-icon> Calendar</div>
-        <div class="feature-chip"><iconify-icon icon="solar:radar-2-bold-duotone"></iconify-icon> Workflows</div>
-        <div class="feature-chip"><iconify-icon icon="solar:sparkles-bold-duotone"></iconify-icon> Daily Focus</div>
-      </div>
-    </section>
-
-    <!-- Section 4: Personas carousel -->
-    <section class="section personas reveal">
-      <div class="section-header">
-        <p class="eyebrow">Made for the way you work</p>
-        <h2>Slate adapts to every role.</h2>
-      </div>
-      <div class="carousel-controls">
-        <button class="carousel-btn prev" aria-label="Previous persona">‹</button>
-        <button class="carousel-btn next" aria-label="Next persona">›</button>
-      </div>
-      <div class="persona-track" id="personaTrack">
-        <article class="persona-card">
-          <div class="persona-illustration coral"></div>
-          <h3>Emma — Project Manager</h3>
-          <p>Tracks launches, blockers, and updates in calm lists synced to her team vault.</p>
-        </article>
-        <article class="persona-card">
-          <div class="persona-illustration mint"></div>
-          <h3>Jules — Student</h3>
-          <p>Plans study sessions, lecture notes, and exam tasks without losing markdown context.</p>
-        </article>
-        <article class="persona-card">
-          <div class="persona-illustration lilac"></div>
-          <h3>Mia — Content Creator</h3>
-          <p>Storyboards posts, drafts scripts, and schedules shoots with focus-friendly checklists.</p>
-        </article>
-        <article class="persona-card">
-          <div class="persona-illustration amber"></div>
-          <h3>Rowan — Engineer</h3>
-          <p>Keeps PRs, bugs, and tech debt tidy with smart filters that match their repo structure.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Section 5: Write section -->
-    <section class="section write reveal">
-      <div class="write-inner">
-        <div class="write-copy">
-          <p class="eyebrow">Write</p>
-          <h2>Think clearly. Act confidently.</h2>
-          <p class="lead">Capture ideas, draft plans, and refine tasks with the same calm as a sheet of fresh paper—now backed by markdown you already trust.</p>
-          <div class="write-links">
-            <a href="#">Templates</a>
-            <a href="#">Smart Lists</a>
-            <a href="#">AI Assist</a>
-            <a href="#">Sharing</a>
-          </div>
-          <a class="learn" href="#">Learn more</a>
-        </div>
-        <div class="write-cards">
-          <div class="note-card">
-            <p class="note-eyebrow">Task list</p>
-            <h3>Trip planning</h3>
-            <ul>
-              <li><span class="dot blue"></span> Reserve cabin</li>
-              <li><span class="dot purple"></span> Pack camera kit</li>
-              <li><span class="dot green"></span> Share itinerary</li>
-            </ul>
-          </div>
-          <div class="note-card detailed">
-            <p class="note-eyebrow">Detail</p>
-            <h3>Pack camera kit</h3>
-            <p class="note-body">Link tasks to markdown notes, drop in references, and keep every checklist in sync across your vault.</p>
-            <div class="chips">
-              <span class="chip soft">Due Fri</span>
-              <span class="chip soft">Vault: /travel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 6: Awards -->
-    <section class="section awards reveal">
-      <div class="award-row">
-        <div class="award">App Store Feature</div>
-        <div class="award">Top Productivity App</div>
-        <div class="award">Editors’ Choice</div>
-        <div class="award">Built for iOS & iPadOS</div>
-      </div>
-    </section>
-
-    <!-- Section 7: Plan section -->
-    <section class="section plan reveal">
-      <div class="plan-cards">
-        <div class="plan-card calendar">
-          <div class="plan-head">Calendar</div>
-          <div class="calendar-grid">
-            <span>Mon</span><span class="active">Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
-          </div>
-          <p class="plan-note">Focus block · 10:00</p>
-        </div>
-        <div class="plan-card task">
-          <p class="plan-head">Reminder</p>
-          <p class="plan-title">Call design partner</p>
-          <p class="plan-meta">Today · 4:30 PM</p>
-          <button class="chip ghost">Mark done</button>
-        </div>
-      </div>
-      <div class="plan-copy">
-        <p class="eyebrow">Plan</p>
-        <h2>Planning that feels effortless.</h2>
-        <p class="lead">Schedule, prioritize, and glide through your day with a calm calendar that matches your tasks.</p>
-        <a class="learn" href="#">Learn more</a>
-      </div>
-    </section>
-
-    <!-- Section 8: Organize section -->
-    <section class="section organize reveal">
-      <div class="organize-grid">
-        <div class="organize-card">
-          <p class="eyebrow">Spaces</p>
-          <h3>Switch between personal and work</h3>
-          <p>Keep boundaries clear with dedicated spaces that share your design system but not your distractions.</p>
-        </div>
-        <div class="organize-card">
-          <p class="eyebrow">Folders & Tags</p>
-          <h3>Classic hierarchy, modern calm</h3>
-          <p>Browse vaults the way you expect—just softer, smoother, and ready on every device.</p>
-        </div>
-        <div class="organize-card">
-          <p class="eyebrow">Collections</p>
-          <h3>Structured tracking</h3>
-          <p>Bundle tasks, docs, and notes into collections that stay in sync as your projects grow.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 9: Customization -->
-    <section class="section customization reveal">
-      <div class="section-header">
-        <p class="eyebrow">Customization</p>
-        <h2>Make Slate unmistakably yours.</h2>
-      </div>
-      <div class="theme-grid">
-        <div class="theme-tile minimal">Minimal</div>
-        <div class="theme-tile dawn">Dawn</div>
-        <div class="theme-tile midnight">Midnight</div>
-        <div class="theme-tile blueprint">Blueprint</div>
-        <div class="theme-tile paper">Paper</div>
-        <div class="theme-tile lavender">Lavender</div>
-      </div>
-    </section>
-
-    <!-- Section 10: Testimonial -->
-    <section class="section testimonial reveal">
-      <div class="quote-card">
-        <p class="quote">“Slate feels like the quietest way to run my day. Tasks stay tied to my notes, and everything looks beautifully intentional.”</p>
-        <div class="quote-author">
-          <div class="avatar">SC</div>
-          <div>
-            <p class="author-name">Sienna Cole</p>
-            <p class="author-role">Founder, Northbeam Studio</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 11: Community -->
-    <section class="section community reveal" id="community">
-      <div class="community-grid">
-        <a class="community-card" href="#"><span>Reddit</span></a>
-        <a class="community-card" href="#"><span>Slack</span></a>
-        <a class="community-card" href="#"><span>Twitter</span></a>
-        <a class="community-card" href="#"><span>YouTube</span></a>
-      </div>
-    </section>
-
-    <!-- Section 12: Pricing -->
-    <section class="section pricing reveal" id="pricing">
-      <div class="section-header">
-        <p class="eyebrow">Pricing</p>
-        <h2>Choose a plan that keeps you in flow.</h2>
-      </div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <p class="plan">Free</p>
-          <p class="price">$0</p>
-          <ul>
-            <li>Sync 2 vaults</li>
-            <li>Widgets & reminders</li>
-            <li>Basic sharing</li>
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          <ul class="micro-pillars">
+            <li>Understands your Obsidian vault</li>
+            <li>Built natively for Apple devices</li>
+            <li>Markdown-driven</li>
           </ul>
-          <button class="button secondary">Start free</button>
         </div>
-        <div class="price-card featured" id="download">
-          <p class="plan">Pro</p>
-          <p class="price">$9<span>/mo</span></p>
-          <ul>
-            <li>Unlimited vaults</li>
-            <li>Offline-first sync</li>
-            <li>AI assist & templates</li>
-            <li>Priority support</li>
-          </ul>
-          <button class="button primary">Try Slate Free</button>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-header">
+                <div class="signal-dot"></div>
+                <div class="signal-dot"></div>
+                <div class="signal-dot"></div>
+              </div>
+              <div class="phone-icon">
+                <img src="assets/slate-icon.svg" alt="" />
+              </div>
+              <div class="phone-text">
+                <p class="phone-title">Slate Tasks</p>
+                <p class="phone-subtitle">Your vault, beautifully organized.</p>
+                <div class="phone-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-glow"></div>
         </div>
       </div>
     </section>
-
-    <!-- Section 13: Footer -->
-    <footer class="footer section reveal">
-      <div class="footer-grid">
-        <div>
-          <div class="logo-pill">
-            <img src="assets/slate-icon.svg" alt="Slate logo" class="logo-mark" />
-            <span class="logo-name">Slate</span>
-          </div>
-          <p class="footnote">A calm, precise task home for markdown vaults on iPhone and iPad.</p>
-        </div>
-        <div class="footer-links">
-          <div>
-            <p class="foot-heading">Product</p>
-            <a href="#hero">Overview</a>
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-          </div>
-          <div>
-            <p class="foot-heading">Community</p>
-            <a href="#community">Slack</a>
-            <a href="#community">Reddit</a>
-            <a href="#community">YouTube</a>
-          </div>
-          <div>
-            <p class="foot-heading">Support</p>
-            <a href="#">Docs</a>
-            <a href="#">Contact</a>
-            <a href="#">Status</a>
-          </div>
-          <div>
-            <p class="foot-heading">Company</p>
-            <a href="#">About</a>
-            <a href="#">Press</a>
-            <a href="#">Careers</a>
-          </div>
-          <div>
-            <p class="foot-heading">Legal</p>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Security</a>
-          </div>
-          <div>
-            <p class="foot-heading">Download</p>
-            <a href="#">App Store</a>
-            <a href="#">TestFlight</a>
-          </div>
-        </div>
-      </div>
-      <p class="smallprint">© 2024 SlateTasks.com · Crafted with calm precision.</p>
-    </footer>
   </main>
 
   <script src="script.js"></script>
