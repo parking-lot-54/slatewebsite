@@ -1,46 +1,39 @@
-const reveals = document.querySelectorAll('.reveal');
+const signupForm = document.getElementById('signupForm');
+const formNote = document.getElementById('formNote');
+const storageKey = 'slateAlphaSignups';
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-reveals.forEach((section) => observer.observe(section));
-
-// Persona carousel controls
-const track = document.getElementById('personaTrack');
-const prev = document.querySelector('.carousel-btn.prev');
-const next = document.querySelector('.carousel-btn.next');
-
-const scrollByCard = (direction) => {
-  if (!track) return;
-  const card = track.querySelector('.persona-card');
-  const amount = card ? card.clientWidth + 18 : 300;
-  track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+const getStoredSignups = () => {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey)) ?? [];
+  } catch (error) {
+    return [];
+  }
 };
 
-prev?.addEventListener('click', () => scrollByCard(-1));
-next?.addEventListener('click', () => scrollByCard(1));
+const storeSignup = (email) => {
+  const signups = getStoredSignups();
+  const normalized = email.trim().toLowerCase();
+  const exists = signups.some((entry) => entry.email === normalized);
+  if (exists) {
+    return { status: 'exists' };
+  }
+  signups.push({ email: normalized, submittedAt: new Date().toISOString() });
+  localStorage.setItem(storageKey, JSON.stringify(signups));
+  return { status: 'stored' };
+};
 
-// Slight hero parallax glow
-const hero = document.querySelector('.hero');
-const halos = document.querySelectorAll('.halo');
-
-if (hero && halos.length) {
-  hero.addEventListener('mousemove', (event) => {
-    const { left, top, width, height } = hero.getBoundingClientRect();
-    const x = (event.clientX - left - width / 2) / width;
-    const y = (event.clientY - top - height / 2) / height;
-    halos.forEach((halo, idx) => {
-      const intensity = idx === 0 ? 10 : 14;
-      halo.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
-    });
+if (signupForm) {
+  signupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(signupForm);
+    const email = formData.get('email');
+    if (!email) return;
+    const result = storeSignup(email.toString());
+    if (formNote) {
+      formNote.textContent = result.status === 'exists'
+        ? 'You are already on the early access list. We will be in touch soon.'
+        : 'Thanks for signing up! We will reach out with alpha access details.';
+    }
+    signupForm.reset();
   });
 }
