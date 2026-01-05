@@ -7,6 +7,10 @@ Static marketing site for the forthcoming **Slate** iOS/macOS task manager.
 - **Homepage**: `/index.html`
 - **Support / FAQ**: `/support/index.html` (also duplicated at `/support.html`)
 
+## FAQ JSON (single source of truth)
+
+The FAQ is served as JSON at `https://slatetasks.com/support/faq.json` and the Support page renders from it.
+
 ## Icons / favicons
 
 Source icon (1024×1024) lives in `assets/` and we generate standard web sizes:

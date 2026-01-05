@@ -39,20 +39,68 @@
         <p class="lead">Find quick answers about using Slate with your Obsidian vault. If you need more help, contact us from inside the app.</p>
       </div>
       <section class="faq-list" id="faq">
-        <details class="faq-item" open>
-          <summary>Does Slate read my entire Obsidian vault?</summary>
-          <p>No. Slate only indexes the folders you choose and keeps everything on-device for speed and privacy.</p>
-        </details>
-        <details class="faq-item">
-          <summary>When will the iPhone and iPad versions launch?</summary>
-          <p>We are shipping the alpha first. Join the early access list on the homepage to be notified as soon as builds are ready.</p>
-        </details>
-        <details class="faq-item">
-          <summary>How do I link this FAQ inside the app?</summary>
-          <p>Point your Support or FAQ button to https://slatetasks.com/support/#faq for a direct jump to these questions.</p>
-        </details>
+        <p class="lead" data-faq-status>Loading FAQs…</p>
+        <noscript>
+          <p class="lead">FAQs require JavaScript to load.</p>
+        </noscript>
       </section>
     </div>
   </main>
+
+  <script>
+    (() => {
+      const container = document.getElementById('faq');
+      if (!container) return;
+
+      const source = '/support/faq.json';
+
+      const renderStatus = (message) => {
+        container.innerHTML = '';
+        const p = document.createElement('p');
+        p.className = 'lead';
+        p.textContent = message;
+        container.appendChild(p);
+      };
+
+      const renderFaq = (items) => {
+        container.innerHTML = '';
+        if (!Array.isArray(items) || items.length === 0) {
+          renderStatus('No FAQs yet. Please check back soon.');
+          return;
+        }
+
+        items.forEach((item, index) => {
+          const details = document.createElement('details');
+          details.className = 'faq-item';
+          if (item && typeof item.id === 'string' && item.id.trim().length > 0) {
+            details.id = item.id.trim();
+          }
+          if ((item && item.defaultOpen === true) || (index === 0 && !items.some((x) => x && x.defaultOpen === true))) {
+            details.open = true;
+          }
+
+          const summary = document.createElement('summary');
+          summary.textContent = (item && item.question) ? String(item.question) : '';
+
+          const answer = document.createElement('p');
+          answer.textContent = (item && item.answer) ? String(item.answer) : '';
+
+          details.appendChild(summary);
+          details.appendChild(answer);
+          container.appendChild(details);
+        });
+      };
+
+      fetch(source, { headers: { Accept: 'application/json' } })
+        .then((response) => {
+          if (!response.ok) throw new Error('FAQ request failed');
+          return response.json();
+        })
+        .then((data) => renderFaq(data && data.items))
+        .catch(() => {
+          renderStatus('Unable to load FAQs right now. Please try again later.');
+        });
+    })();
+  </script>
 </body>
 </html>

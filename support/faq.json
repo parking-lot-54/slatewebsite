@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "updatedAt": "2026-01-05",
+  "items": [
+    {
+      "id": "vault-access",
+      "question": "Does Slate read my entire Obsidian vault?",
+      "answer": "No. Slate only indexes the folders you choose and keeps everything on-device for speed and privacy.",
+      "defaultOpen": true
+    },
+    {
+      "id": "release-timeline",
+      "question": "When will the iPhone and iPad versions launch?",
+      "answer": "We are shipping the alpha first. Join the early access list on the homepage to be notified as soon as builds are ready."
+    },
+    {
+      "id": "app-link",
+      "question": "How do I link this FAQ inside the app?",
+      "answer": "Point your Support or FAQ button to https://slatetasks.com/support/#faq for a direct jump to these questions."
+    }
+  ]
+}
+
+
