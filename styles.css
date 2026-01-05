@@ -118,9 +118,13 @@ h1, h2, h3, h4 {
 
 .logo-name {
   font-family: var(--font-rounded);
-  font-weight: 600; /* SF Pro Rounded Semibold */
-  font-size: 16px;
+  font-weight: 800; /* SF Pro Rounded Heavy */
+  font-size: 20px;
   letter-spacing: -0.01em;
+  line-height: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .hero {
