@@ -7,6 +7,16 @@ Static marketing site for the forthcoming **Slate** iOS/macOS task manager.
 - **Homepage**: `/index.html`
 - **Support / FAQ**: `/support/index.html` (also duplicated at `/support.html`)
 
+## Icons / favicons
+
+Source icon (1024×1024) lives in `assets/` and we generate standard web sizes:
+
+- `assets/slate-icon-1024.png` (source)
+- `assets/slate-icon-256.png` (used in-page)
+- `assets/apple-touch-icon.png` (iOS home screen)
+- `assets/favicon-32.png`, `assets/favicon-16.png`, and `/favicon.ico`
+- `assets/icon-192.png`, `assets/icon-512.png` (PWA/manifest)
+
 ## Email signup (Early Access)
 
 The signup form is wired in `script.js`. Because GitHub Pages is static, you’ll need a hosted form endpoint to actually collect emails.
