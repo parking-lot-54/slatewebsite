@@ -121,10 +121,9 @@ h1, h2, h3, h4 {
   font-weight: 800; /* SF Pro Rounded Heavy */
   font-size: 20px;
   letter-spacing: -0.01em;
-  line-height: 28px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
+  line-height: 1;
+  display: inline-block;
+  transform: translateY(-1px);
 }
 
 .hero {
