@@ -163,7 +163,6 @@ h1, h2, h3, h4 {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   width: fit-content;
 }
 
@@ -259,6 +258,8 @@ h1, h2, h3, h4 {
   box-shadow: 0 12px 28px rgba(15, 23, 32, 0.12);
   font-size: 12px;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .apple-logo {
@@ -274,11 +275,13 @@ h1, h2, h3, h4 {
   color: var(--muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .badge-title {
   font-size: 14px;
   font-weight: 600;
+  line-height: 1;
 }
 
 .form-note {
