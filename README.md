@@ -14,7 +14,7 @@ Source icon (1024×1024) lives in `assets/` and we generate standard web sizes:
 - `assets/slate-icon-1024.png` (source)
 - `assets/slate-icon-256.png` (used in-page)
 - `assets/apple-touch-icon.png` (iOS home screen)
-- `assets/favicon-32.png`, `assets/favicon-16.png`, and `/favicon.ico`
+- `assets/favicon-32.png`, `assets/favicon-16.png`, and `/favicon.ico` (browser favicon)
 - `assets/icon-192.png`, `assets/icon-512.png` (PWA/manifest)
 
 ## Email signup (Early Access)
