@@ -58,7 +58,6 @@ h1, h2, h3, h4 {
 .nav-shell,
 .signup-form,
 .app-store-badge,
-.micro-pillars li,
 .faq-item {
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
@@ -296,39 +295,6 @@ h1, h2, h3, h4 {
 
 .form-note[data-state="error"] {
   color: color-mix(in srgb, var(--text) 70%, #ff3b30);
-}
-
-.micro-pillars {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.micro-pillars li {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  position: relative;
-  padding-left: 30px;
-}
-
-.micro-pillars li::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.9;
 }
 
 .hero-visual {
