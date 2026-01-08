@@ -104,6 +104,25 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 14px;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  padding: 10px 4px;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
 }
 
 .logo-pill {
