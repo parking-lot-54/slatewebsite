@@ -3,13 +3,24 @@ const formNote = document.getElementById('formNote');
 const storageKey = 'slateAlphaSignups';
 
 /**
- * Email collection (static-site friendly)
+ * Email collection (static-site + free)
  *
- * Recommended: Formspree
- * 1) Create a form in Formspree
- * 2) Paste your endpoint below, e.g. https://formspree.io/f/xxxxxxx
+ * Recommended: Google Sheets via Google Forms
+ *
+ * How it works:
+ * - You create a Google Form with an Email field.
+ * - You connect the form to a Google Sheet (Responses tab → Link to Sheets).
+ * - This site POSTs to the form's `formResponse` endpoint.
+ *
+ * Setup:
+ * 1) Create a Google Form with a single question "Email" (Short answer, email validation).
+ * 2) In the Form: ⋮ → "Get pre-filled link" → enter a dummy email → copy the URL.
+ *    It will contain `entry.<ID>=...` — that <ID> is your EMAIL entry ID.
+ * 3) The URL also contains your Form ID. Your action endpoint should be:
+ *    https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
  */
-const SIGNUP_ENDPOINT = '';
+const GOOGLE_FORM_ACTION_URL = '';
+const GOOGLE_FORM_EMAIL_ENTRY_ID = '';
 
 const getStoredSignups = () => {
   try {
@@ -53,7 +64,10 @@ const setBusy = (busy) => {
 };
 
 const isEndpointConfigured = () =>
-  typeof SIGNUP_ENDPOINT === 'string' && SIGNUP_ENDPOINT.trim().length > 0;
+  typeof GOOGLE_FORM_ACTION_URL === 'string' &&
+  GOOGLE_FORM_ACTION_URL.trim().length > 0 &&
+  typeof GOOGLE_FORM_EMAIL_ENTRY_ID === 'string' &&
+  GOOGLE_FORM_EMAIL_ENTRY_ID.trim().length > 0;
 
 const isLocalPreview = () =>
   window.location.protocol === 'file:' ||
@@ -61,19 +75,18 @@ const isLocalPreview = () =>
   window.location.hostname === '127.0.0.1';
 
 const submitEmail = async (email) => {
-  const payload = new FormData();
-  payload.append('email', email);
-  payload.append('source', window.location.href);
+  const entryKey = `entry.${GOOGLE_FORM_EMAIL_ENTRY_ID.trim()}`;
+  const payload = new URLSearchParams();
+  payload.set(entryKey, email);
 
-  const response = await fetch(SIGNUP_ENDPOINT, {
+  // Note: Google Forms does not send CORS headers. Using `no-cors` still submits successfully,
+  // but we cannot read the response. We'll treat a completed fetch as success.
+  await fetch(GOOGLE_FORM_ACTION_URL, {
     method: 'POST',
-    headers: { Accept: 'application/json' },
-    body: payload,
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+    body: payload.toString(),
   });
-
-  if (!response.ok) {
-    throw new Error('Signup request failed');
-  }
 };
 
 if (signupForm) {

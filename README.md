@@ -23,13 +23,18 @@ Source icon (1024×1024) lives in `assets/` and we generate standard web sizes:
 
 ## Email signup (Early Access)
 
-The signup form is wired in `script.js`. Because GitHub Pages is static, you’ll need a hosted form endpoint to actually collect emails.
+The signup form is wired in `script.js`. This site is static (GitHub Pages), so we use **Google Sheets via Google Forms** to collect emails for free.
 
-- **Recommended**: Formspree
-  - Create a form in Formspree and copy your endpoint URL
-  - Paste it into `SIGNUP_ENDPOINT` in `script.js`
+### Setup (Google Sheets via Google Forms)
 
-Once configured, the homepage form will POST:
-
-- `email`
-- `source` (the current page URL)
+1. Create a **Google Form** with one question:
+   - **Email** (Short answer)
+   - Enable email validation (in question settings)
+2. In the form, go to **Responses** → **Link to Sheets**.
+3. Get your entry id:
+   - Form menu **⋮** → **Get pre-filled link**
+   - Enter a dummy email, generate link, copy it
+   - In the URL you’ll see `entry.<ID>=...` — copy the `<ID>` part
+4. In `script.js`, set:
+   - `GOOGLE_FORM_ACTION_URL` to `https://docs.google.com/forms/d/e/<FORM_ID>/formResponse`
+   - `GOOGLE_FORM_EMAIL_ENTRY_ID` to the `<ID>` from step 3
