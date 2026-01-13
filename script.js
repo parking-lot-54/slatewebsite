@@ -129,7 +129,7 @@ if (signupForm) {
       setNote('Submitting…', '');
       await submitEmail(normalizedEmail);
       rememberSignup(normalizedEmail);
-      setNote('Thanks for signing up! We’ll reach out with alpha access details.', 'success');
+      setNote('Thanks for signing up to the waitlist!', 'success');
       signupForm.reset();
     } catch (error) {
       setNote('Something went wrong — please try again.', 'error');
