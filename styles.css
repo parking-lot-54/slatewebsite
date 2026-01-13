@@ -562,6 +562,26 @@ h1, h2, h3, h4 {
   }
 }
 
+@media (max-width: 1024px) {
+  .cta-row {
+    align-items: stretch;
+  }
+
+  .signup-form {
+    width: 100%;
+    border-radius: 24px;
+  }
+
+  .signup-form input {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  .signup-form .button {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding-top: 96px;
