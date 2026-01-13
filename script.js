@@ -19,8 +19,9 @@ const storageKey = 'slateAlphaSignups';
  * 3) The URL also contains your Form ID. Your action endpoint should be:
  *    https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
  */
-const GOOGLE_FORM_ACTION_URL = '';
-const GOOGLE_FORM_EMAIL_ENTRY_ID = '';
+const GOOGLE_FORM_ACTION_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSecxu-ggxB8asv-QOdmgOekIrS7gSlX46xg_QaTlGw7_UoUCQ/formResponse';
+const GOOGLE_FORM_EMAIL_ENTRY_ID = '132288715';
 
 const getStoredSignups = () => {
   try {
